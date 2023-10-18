@@ -72,15 +72,19 @@ class ChatBot:
             print("AI: "+response+"\n")
             input_text = input("User(exit to quit): ")
 
-def debug_invoker(entity, service, args):
+def debug_invoker(service, *args):
     # print("invoker activated!")
     # print(f"entity = {entity}")
     # print(f"service = {service}")
     # print("args")
-    return "学号错误！"
+    if service ==  "clap_hands":
+        return "clap_hands执行成功，本轮任务已完成，请返回Final Answer: Task Finished"
+    elif service ==  "happy_face":
+        return "happy_face执行成功，本轮任务已完成，请返回Final Answer: Task Finished"
 
 # debug
 if __name__=='__main__':
     print("run in chat.py")
     new_chat = ChatBot(debug_invoker)
-    new_chat.chat("检查我的学号PB21071489是否正确")
+    #new_chat.chat("拍拍手")
+    new_chat._chat()
