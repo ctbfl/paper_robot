@@ -27,7 +27,7 @@ def create_prompt(tools: Tool_list):
     Observation: 拍拍手成功，本轮任务已完成，请返回Final Answer: Task Finished
     Final Answer: 提供的学号是正确的
 
-    接下来请你来接受用户需求完成动作！ 请严格按照上述格式的要求进行输出，最终输出结果前要写Final Answer不要忘记了：
+    接下来请你来接受用户需求完成动作，如果觉得不需要执行动作，也请输出Final Answer:无需动作！ 请严格按照上述格式的要求进行输出，最终输出结果前要写Final Answer不要忘记了：
     Question: {{input}}
     {{agent_scratchpad}}"""
 
