@@ -7,7 +7,7 @@ RATE = 16000  # 采样率
 CHANNELS = 1  # 双声道
 
 def record_audio():
-    audio_data = []
+    audio_data = []                                                                   
     with sd.InputStream(samplerate=RATE, channels=CHANNELS) as stream:
         print("正在录音...")                                                                                                                                      
         while keyboard.is_pressed('space'):
