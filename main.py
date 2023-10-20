@@ -37,6 +37,7 @@ while True:
     if keyboard.is_pressed('esc'):
         break
     elif keyboard.is_pressed('space'):
+        history = [{'role':'system','content':"你是一个paper robot, 性格开朗活泼, 你接下来会收到用户的交流，请你活泼开朗的回复他"}]
         record_audio()
         text = process_audio(my_chatbot)
         print("你：",text)

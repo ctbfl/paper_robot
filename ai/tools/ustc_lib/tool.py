@@ -12,16 +12,16 @@ def echo(my_string):
 def get_tools(chatbot_entity):
     def set_face(face):
         if face == 'happy':
-            secret.send_image_id("happy.png")
+            secret.send_image_id("happy.jpg")
             return "表情happy设置完成，请输出Final Answer: Task Finished"
         elif face == 'sad':
-            secret.send_image_id("sad.png")
+            secret.send_image_id("sad.jpg")
             return "表情sad设置完成，请输出Final Answer: Task Finished"
         elif face == 'angry':
-            secret.send_image_id("angry.png")
+            secret.send_image_id("angry.jpg")
             return "表情angry设置完成，请输出Final Answer: Task Finished"
         elif face == 'nonplussed':
-            secret.send_image_id("nonplussed.png")
+            secret.send_image_id("speechless.jpg")
             return "表情nonplussed设置完成，请输出Final Answer: Task Finished"
         else:
             secret.send_image_id("happy.png")

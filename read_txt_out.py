@@ -7,8 +7,8 @@ def play_text(text):
     engine = pyttsx3.init()
 
     # 设置属性，如语速和音量 (可选)
-    engine.setProperty('rate', 150)  # 语速
-    engine.setProperty('volume', 0.9)  # 音量
+    engine.setProperty('rate', 250)  # 语速
+    engine.setProperty('volume', 100)  # 音量
 
     # 在当前目录下保存音频数据
     temp_audio_filename = "my_temp.wav"
