@@ -1,6 +1,7 @@
 from langchain.agents import Tool
 from ai.chat import ChatBot
 from json import dumps
+import secret
 empty = ""
 def empty_func():
     return "没有动作需要执行，你现在可以输出Final Answer: 无需动作！"
@@ -11,14 +12,19 @@ def echo(my_string):
 def get_tools(chatbot_entity):
     def set_face(face):
         if face == 'happy':
+            secret.send_image_id("happy.png")
             return "表情happy设置完成，请输出Final Answer: Task Finished"
         elif face == 'sad':
+            secret.send_image_id("sad.png")
             return "表情sad设置完成，请输出Final Answer: Task Finished"
         elif face == 'angry':
+            secret.send_image_id("angry.png")
             return "表情angry设置完成，请输出Final Answer: Task Finished"
         elif face == 'nonplussed':
+            secret.send_image_id("nonplussed.png")
             return "表情nonplussed设置完成，请输出Final Answer: Task Finished"
         else:
+            secret.send_image_id("happy.png")
             return "表情设置完成，请输出Final Answer: Task Finished"
 
     set_face_tool = Tool(
