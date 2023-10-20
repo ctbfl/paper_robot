@@ -22,7 +22,6 @@ def get_LLM(args):
         openai.api_base = config.openai_api_base
         openai.api_key = config.openai_api_key
         os.environ["OPENAI_API_KEY"] = config.openai_api_key
-        os.environ["SERPAPI_API_KEY"] = config.serpapi_api_key
         llm = ChatOpenAI(model_name=config.gpt_model_name)
         # llm = OpenAI(temperature=0)
 

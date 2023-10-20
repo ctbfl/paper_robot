@@ -24,7 +24,7 @@ class ChatBot:
 
         self.parser = argparse.ArgumentParser(description="解析命令参数")
 
-        self.parser.add_argument("--model", help="模型名称", default="ChatGLM2")
+        self.parser.add_argument("--model", help="模型名称", default="OpenAI")
         self.parser.add_argument("--model_path", help="模型路径", default="D:\LLMs\chatglm2-6b")
         self.parser.add_argument("--embedding_path", help="嵌入路径", default="D:\LLMs\text2vec-large-chinese")
         self.parser.add_argument("--show_tool_info", help="是否显示工具信息", action="store_true",default=False)
