@@ -2,6 +2,7 @@ import sounddevice as sd
 import numpy as np
 import keyboard
 from voice_recognition import speeh_recognition
+from ai.chat import ChatBot
 
 RATE = 16000  # 采样率
 CHANNELS = 1  # 单声道
@@ -20,10 +21,14 @@ def record_audio():
     with open('test.pcm', 'wb') as pcm_file:
         pcm_file.write(audio_array.tobytes())
 
-def process_audio():
+def process_audio(chatbot):
     print("处理 test.pcm ...")
     text = speeh_recognition()
     print(text)
+    chatbot.chat(text)
+    print("处理完成.请继续按空格录音.")
+
+my_chatbot = ChatBot()  
                                                                          
 print("长按空格以开始录音，释放空格以停止录音。按 'esc' 退出程序。")
 

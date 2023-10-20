@@ -16,7 +16,7 @@ from langchain import LLMChain
 from langchain.agents import AgentExecutor
 
 class ChatBot:
-    def __init__(self, invoker) -> None:
+    def __init__(self) -> None:
         '''Initialize a chatbot.
 
         :param invoker: The handler to handle invoking API services.'''
@@ -49,7 +49,6 @@ class ChatBot:
         )
 
         self.series = randint(1, 100)
-        self.handler = invoker
 
     def chat(self, text: str) -> str:
         '''Chat with the bot.
@@ -58,13 +57,8 @@ class ChatBot:
         response = self.agent_executor.run(text)
         return response
 
-    def invoke(self, entity: str, service: str, args: dict={}) -> dict:
-        '''Invoke an API service. See main.py function `invoke` and services/api.py function `handle` for detailed information.
-
-        :param entity: The target entity.
-        :param service: The service of given entity to invoke.
-        :param args: The arguments to pass to the service.'''
-        return self.handler(entity, service, args)
+    def plan(self, text):
+        return self.llm(text)
 
     def _chat(self):
         input_text = input("User(exit to quit): ")
@@ -87,5 +81,6 @@ def debug_invoker(service, *args):
 if __name__=='__main__':
     print("run in chat.py")
     new_chat = ChatBot(debug_invoker)
-    #new_chat.chat("拍拍手")
-    new_chat._chat()
+    # new_chat.chat("拍拍手")
+    # new_chat._chat()
+    # print(new_chat.plan("早上好呀"))
