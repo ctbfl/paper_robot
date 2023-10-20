@@ -26,7 +26,7 @@ def process_audio(chatbot):
     text = speeh_recognition()
     print(text)
     chatbot.chat(text)
-    print("处理完成.请继续按空格录音.")
+    print("处理完成.请继续按空格录音.")                                   
 
 my_chatbot = ChatBot()  
                                                                          
@@ -37,5 +37,5 @@ while True:
         break
     elif keyboard.is_pressed('space'):
         record_audio()
-        process_audio()
+        process_audio(my_chatbot)
 
