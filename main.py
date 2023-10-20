@@ -25,11 +25,13 @@ def record_audio():
 def process_audio(chatbot):
     print("处理 test.pcm ...")
     text = speeh_recognition()
-    print(text)
+    print("你：",text)
     chatgpt_response = completion(text)
-    action_result = chatbot.chat(text)
-    print("处理完成.请继续按空格录音.")
-    play_text(chatgpt_response)                                  
+    print("paper_robot:",chatgpt_response)
+    action_result = chatbot.chat(chatgpt_response)
+    print(action_result)
+    play_text(chatgpt_response)  
+    print("处理完成.请继续按空格录音.")                                
 
 my_chatbot = ChatBot()  
                                                                          

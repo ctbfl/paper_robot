@@ -10,7 +10,7 @@ os.environ["OPENAI_API_BASE"] = secret.openai_api_base
 
 def completion(text):
   # 调用文本生成 API
-  messages = [{'role': 'user','content': text},]
+  messages = [{'role':'system','content':"你是一个paper robot, 性格开朗活泼, 你接下来会收到用户的交流，请你活泼开朗的回复他"},{'role': 'user','content': text},]
   model = secret.gpt_model_name
   response = openai.ChatCompletion.create(
     model=model,
@@ -18,4 +18,5 @@ def completion(text):
   )
 
   result = response["choices"][0]["message"]["content"]
-  print(result)
+  #print(result)
+  return result

@@ -14,7 +14,8 @@ def create_prompt(tools: Tool_list):
     Action: <工具Action名称>
     Action Input: <你选择的表情，英文关键字>
     Observation: <Action返回的结果，是否执行成功的信息>
-    Final Answer: <最终结果>
+    Thought: 任务已经完成，我应当输出Final Answer: Task Finished
+    Final Answer: Final Answer: Task Finished
 
 
     样例1
@@ -23,9 +24,11 @@ def create_prompt(tools: Tool_list):
     Action: set_face
     Action Input: happy
     Observation: 表情happy设置完成，请输出：Final Answer: Task Finished
-    Final Answer: Finished
+    Thought: 任务已经完成，我应当输出Final Answer: Task Finished
+    Final Answer: Final Answer: Task Finished
 
-    接下来请你来接受输入进行表情设置，请严格按照上述格式的要求进行输出，最终输出结果前要写Final Answer不要忘记了。开始！
+    接下来请你来接受输入，进行表情设置，请严格按照上述格式的要求进行输出，当收到请输出Final Answer: Task Finished指令时，立刻输出Final Answer: Task Finished。
+    开始！
     Question: {{input}}
     {{agent_scratchpad}}"""
 
