@@ -13,11 +13,6 @@ model = secret.gpt_model_name
 response = openai.Completion.create(
   model=model,
   prompt=prompt,
-  temperature=0,
-  max_tokens=100,
-  top_p=1.0,
-  frequency_penalty=0.0,
-  presence_penalty=0.0,
 )
 
 print(response)

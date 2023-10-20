@@ -3,6 +3,7 @@ import numpy as np
 import keyboard
 from voice_recognition import speeh_recognition
 from ai.chat import ChatBot
+from read_txt_out import play_text
 
 RATE = 16000  # 采样率
 CHANNELS = 1  # 单声道
@@ -25,8 +26,9 @@ def process_audio(chatbot):
     print("处理 test.pcm ...")
     text = speeh_recognition()
     print(text)
-    chatbot.chat(text)
-    print("处理完成.请继续按空格录音.")                                   
+    result = chatbot.chat(text)
+    print("处理完成.请继续按空格录音.")
+    play_text(result)                                  
 
 my_chatbot = ChatBot()  
                                                                          
@@ -38,4 +40,3 @@ while True:
     elif keyboard.is_pressed('space'):
         record_audio()
         process_audio(my_chatbot)
-

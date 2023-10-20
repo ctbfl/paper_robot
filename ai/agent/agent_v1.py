@@ -44,7 +44,7 @@ class ToolBenchOutputParser(AgentOutputParser):
 
             print("Parse Error!")
             print(llm_output)
-            return AgentAction(tool="echo", tool_input="调用tools失败！请按照Thought、Action、Action Input的格式生成调用内容", log=llm_output) 
+            return AgentAction(tool="echo", tool_input="调用tools失败！请按照Thought、Action、Action Input、Final Answer的格式生成调用内容", log=llm_output) 
 
         try:
             action = match.group(1).strip()

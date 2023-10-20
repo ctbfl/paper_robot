@@ -77,11 +77,11 @@ def fetch_token():
     if (IS_PY3):
         result_str =  result_str.decode()
 
-    print(result_str)
+    #print(result_str)
     result = json.loads(result_str)
-    print(result)
+    #print(result)
     if ('access_token' in result.keys() and 'scope' in result.keys()):
-        print(SCOPE)
+        #print(SCOPE)
         if SCOPE and (not SCOPE in result['scope'].split(' ')):  # SCOPE = False 忽略检查
             raise DemoError('scope is not correct')
         print('SUCCESS WITH TOKEN: %s  EXPIRES IN SECONDS: %s' % (result['access_token'], result['expires_in']))
@@ -123,9 +123,9 @@ def speeh_recognition():
     try:
         begin = timer()
         f = urlopen(req)
-        print(type(f))
+        #print(type(f))
         result_str = f.read()
-        print(type(result_str))
+        #print(type(result_str))
         print ("Request time cost %f" % (timer() - begin))
     except URLError as err:
         print('asr http response http code : ' + str(err.code))
@@ -133,7 +133,7 @@ def speeh_recognition():
 
     if (IS_PY3):
         result_str = str(result_str, 'utf-8')
-        print(result_str)
+        #print(result_str)
         
     data_json = json.loads(result_str)
     print(data_json)
