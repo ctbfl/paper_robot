@@ -11,20 +11,20 @@ def echo(my_string):
 def get_tools(chatbot_entity):
     def set_face(face):
         if face == 'happy':
-            return "表情happy设置完成，请你对用户的输入做出回复吧，形式是Final Answer: <你的回复>"
+            return "表情happy设置完成，请输出Final Answer: Task Finished"
         elif face == 'sad':
-            return "表情sad设置完成，请你对用户的输入做出回复吧，形式是Final Answer: <你的回复>"
+            return "表情sad设置完成，请输出Final Answer: Task Finished"
         elif face == 'angry':
-            return "表情angry设置完成，请你对用户的输入做出回复吧，形式是Final Answer: <你的回复>"
+            return "表情angry设置完成，请输出Final Answer: Task Finished"
         elif face == 'nonplussed':
-            return "表情nonplussed设置完成，请你对用户的输入做出回复吧，形式是Final Answer: <你的回复>"
+            return "表情nonplussed设置完成，请输出Final Answer: Task Finished"
         else:
-            return "表情设置完成，请你对用户的输入做出回复吧，形式是Final Answer: <你的回复>"
+            return "表情设置完成，请输出Final Answer: Task Finished"
 
     set_face_tool = Tool(
         name="set_face",
         func=set_face,
-        description="在回答用户的输入之前，请你根据你预期回复的语气或者心情选择一个表情。Action Input可选项有 happy, angry, sad, nonplussed，只能在其中选择。教会返回执行结果"
+        description="在回答用户的输入之前，请你根据你预期回复的语气或者心情选择一个表情。Action Input可选项有 happy, angry, sad, nonplussed，只能在其中选择。该工具返回为执行结果"
     )
 
     give_up_tool = Tool(
