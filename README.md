@@ -8,5 +8,7 @@ our paper robot
 - [x] 上传音频文本识别模块
 - [x] 错误处理模块，防止报错退出
 - [x] TTS模块
-- [ ] 服务器端nginx+websocket+flask设置以及实时网页ajax结构编写
-- [ ] 本地控制函数编写
+- [x] 服务器端nginx+websocket+flask设置以及实时网页ajax结构编写
+- [x] 本地控制函数编写
+
+大功告成！
