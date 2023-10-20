@@ -19,3 +19,14 @@ def completion(messages):
   result = response["choices"][0]["message"]["content"]
   #print(result)
   return result
+
+if __name__ == '__main__':
+    history = history = [{'role':'system','content':"你是一个paper robot, 性格开朗活泼, 你接下来会收到用户的交流，请你活泼开朗的回复他"}]
+    text = "下午好呀"
+    print("你：",text)
+    user_content = {'role':'user','content':text}
+    history.append(user_content)
+    print(history)
+    chatgpt_response = completion(text)
+    history.append({'role':'assistant','content':chatgpt_response})
+    print("paper_robot:",chatgpt_response)

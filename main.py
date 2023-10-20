@@ -41,9 +41,10 @@ while True:
         text = process_audio(my_chatbot)
         print("你：",text)
         user_content = {'role':'user','content':text}
-        history = history.append(user_content)
-        chatgpt_response = completion(text)
-        history = history.append({'role':'assistant','content':chatgpt_response})
+        history.append(user_content)
+        print(history)
+        chatgpt_response = completion(history)
+        history.append({'role':'assistant','content':chatgpt_response})
         print("paper_robot:",chatgpt_response)
         action_result = my_chatbot.chat(chatgpt_response)
         print(action_result)

@@ -1,14 +1,17 @@
-
-import os
 import openai
-
 import secret
+import os
 
 # 设置 API 密钥
 openai.api_base = secret.openai_api_base
 openai.api_key = secret.openai_api_key
 os.environ["OPENAI_API_KEY"] = secret.openai_api_key
 os.environ["OPENAI_API_BASE"] = secret.openai_api_base
+# openai.log = "debug"
+openai.api_key = "sk-"
+openai.api_base = "https://api.chatanywhere.com.cn/v1"
+
+
 
 # 非流式响应
 # completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": "Hello world!"}])
@@ -39,6 +42,7 @@ def gpt_35_api_stream(messages: list):
                 print(f'流响应数据: {delta_k} = {delta_v}')
                 completion[delta_k] += delta_v
         messages.append(completion)  # 直接在传入参数 messages 中追加消息
+        print(messages)
         return (True, '')
     except Exception as err:
         return (False, f'OpenAI API 异常: {err}')
