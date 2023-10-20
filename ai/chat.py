@@ -8,12 +8,12 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 from ai.model import LLM
 from ai.tools import Tools
 import ai.prompt as prompt
+# from ai.agent.agent_v2 import ToolBench_Agent
+from ai.agent.agent_v1 import ZeroShotAgent
 import argparse
 from langchain import LLMChain
-from langchain.agents import ZeroShotAgent, AgentExecutor
-
-
-
+# from langchain.agents import ZeroShotAgent, AgentExecutor
+from langchain.agents import AgentExecutor
 
 class ChatBot:
     def __init__(self, invoker) -> None:
@@ -41,7 +41,8 @@ class ChatBot:
 
         self.llm_chain = LLMChain(llm=self.llm, prompt=self.chinese_prompt)
 
-        self.agent = LLM.ZeroShotAgent(chatbot=self, llm_chain=self.llm_chain, allowed_tools=self.tools.name())
+        # self.agent = LLM.ZeroShotAgent(chatbot=self, llm_chain=self.llm_chain, allowed_tools=self.tools.name())
+        self.agent = ZeroShotAgent(chatbot=self, llm_chain=self.llm_chain, allowed_tools=self.tools.name())
 
         self.agent_executor = AgentExecutor.from_agent_and_tools(
             agent=self.agent, tools=self.tools(), verbose=True
