@@ -25,21 +25,27 @@ def record_audio():
 def process_audio(chatbot):
     print("处理 test.pcm ...")
     text = speeh_recognition()
-    print("你：",text)
-    chatgpt_response = completion(text)
-    print("paper_robot:",chatgpt_response)
-    action_result = chatbot.chat(chatgpt_response)
-    print(action_result)
-    play_text(chatgpt_response)  
-    print("处理完成.请继续按空格录音.")                                
+    return text
+                                 
 
 my_chatbot = ChatBot()  
                                                                          
 print("长按空格以开始录音，释放空格以停止录音。按 'esc' 退出程序。")
+history = [{'role':'system','content':"你是一个paper robot, 性格开朗活泼, 你接下来会收到用户的交流，请你活泼开朗的回复他"}]
 
 while True:
     if keyboard.is_pressed('esc'):
         break
     elif keyboard.is_pressed('space'):
         record_audio()
-        process_audio(my_chatbot)
+        text = process_audio(my_chatbot)
+        print("你：",text)
+        user_content = {'role':'user','content':text}
+        history = history.append(user_content)
+        chatgpt_response = completion(text)
+        history = history.append({'role':'assistant','content':chatgpt_response})
+        print("paper_robot:",chatgpt_response)
+        action_result = my_chatbot.chat(chatgpt_response)
+        print(action_result)
+        play_text(chatgpt_response)  
+        print("处理完成.请继续按空格录音.")   
